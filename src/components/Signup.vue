@@ -34,7 +34,7 @@ export default {
         /* db.collection('users').doc(token.user.uid).set({userId: token.user.uid}); */
         this.$router.replace('/login')
       }).catch((err) => {
-        alert(err.message)
+        alert(err.message);
       });
     }
   }

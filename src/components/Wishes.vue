@@ -5,15 +5,15 @@
       <div>
         <p>{{ wish.message }}</p>
         <hr>
-        <button class="button" @click="deleteWish(wish.id)">
-          Delete
+        <button v-if="wish.userId == user" class="button" @click="deleteWish(wish.id)">
+          My wish came true
         </button>
       </div>
     </article>
     <form @submit="addWish(message)">
       <h2>Make a wish</h2>
       <input v-model="message" placeholder="Make a wish." class="input" required>
-      <button type="submit" class="button">Add new wish</button>
+      <button type="submit" class="button">Submit my wish</button>
     </form>
   </div>
 </template>
@@ -27,7 +27,8 @@ export default {
     return {
       wishes: [],
       message: '',
-      userId: ''
+      userId: '',
+      user: firebase.auth().currentUser.uid
     }
   },
   firestore() {
@@ -50,7 +51,7 @@ export default {
           if (doc.data().userId == firebase.auth().currentUser.uid) {
             db.collection('wishes').doc(userId).delete();
           } else {
-            alert("Can't delete other people's wishes!");
+            alert("Can't remove other people's wishes!");
           }
         }
       });
