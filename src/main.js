@@ -16,7 +16,7 @@ import "firebase/messaging";
 Vue.use(firestorePlugin);
 
 export const db = firebase.initializeApp({
-// To be inserted
+	// to be inserted.
   }).firestore()
 
 

@@ -4,6 +4,7 @@
     <article class="covers" v-for="(wish, idx) in wishes" :key="idx">
       <div>
         <p>{{ wish.message }}</p>
+        <p>{{ wish.name }}</p>
         <hr>
         <button v-if="wish.userId == user" class="button" @click="deleteWish(wish.id)">
           My wish came true
@@ -27,6 +28,7 @@ export default {
     return {
       wishes: [],
       message: '',
+      name: firebase.auth().currentUser.displayName,
       userId: '',
       user: firebase.auth().currentUser.uid
     }
@@ -40,7 +42,8 @@ export default {
     addWish(message) {
       const createdAt = new Date();
       const userId = firebase.auth().currentUser.uid;
-      db.collection('wishes').add({ message, userId, createdAt });
+      const name = firebase.auth().currentUser.displayName;
+      db.collection('wishes').add({ message, name, userId, createdAt });
       this.message = "";
     },
     deleteWish(userId) {

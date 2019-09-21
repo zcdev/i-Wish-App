@@ -5,6 +5,7 @@
     <br>
     <input v-model="password" type="password" class="input" placeholder="Password" required>
     <br>
+    <input v-model="name" type="text" class="input" placeholder="Name" required>
     <button v-on:click="signUp" class="button">Sign Up!</button>
     <button class="button">
       <router-link to="/login">
@@ -23,22 +24,27 @@ export default {
     return {
       email: '',
       password: '',
-      userId: ''
+      userId: '',
+      name: ''
     }
   },
   methods: {
     signUp() {
-      firebase.auth().createUserWithEmailAndPassword(
-        this.email, this.password).then((token) => {
-        // Get user ID at signup, but not needed now.
-        /* db.collection('users').doc(token.user.uid).set({userId: token.user.uid}); */
-        this.$router.replace('/login')
-      }).catch((err) => {
-        alert(err.message);
-      });
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+        .then(token => {
+          this.$router.replace('/login')
+          token.user.updateProfile({
+            displayName: this.name
+          }).then(token => {
+            this.updateUserData(token.user);
+            resolve(token);
+          }).catch(err => {
+            alert(err.message);
+          });
+        })
+      }
     }
   }
-}
 
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
