@@ -1,21 +1,22 @@
 <template>
   <div>
+    <ul class="posts">
+      <li class="wish" v-for="(wish, idx) in wishes" :key="idx">
+          <p class="message">{{ wish.message }}</p>
+          <p class="name">from: {{ wish.name }}</p>
+          <button v-if="wish.userId == user" class="button" @click="deleteWish(wish.id)">
+            My wish came true
+          </button>
+      </li>
+    </ul>
+    <div class="makewish">
     <button class="button logout" v-on:click="logout">Logout</button>
-    <article class="covers" v-for="(wish, idx) in wishes" :key="idx">
-      <div>
-        <p>{{ wish.message }}</p>
-        <p>{{ wish.name }}</p>
-        <hr>
-        <button v-if="wish.userId == user" class="button" @click="deleteWish(wish.id)">
-          My wish came true
-        </button>
-      </div>
-    </article>
-    <form @submit="addWish(message)">
-      <h2>Make a wish</h2>
-      <input v-model="message" placeholder="Make a wish." class="input" required>
-      <button type="submit" class="button">Submit my wish</button>
-    </form>
+      <form @submit="addWish(message)">
+        <h1>Make a wish.</h1>
+        <input v-model="message" placeholder="Make a wish." class="input" required>
+        <button type="submit" class="button">Submit my wish</button>
+      </form>
+    </div>
   </div>
 </template>
 <script>
@@ -62,13 +63,19 @@ export default {
     },
     logout() {
       firebase.auth().signOut().then(() => {
-        this.$router.replace('login');
+        this.$router.replace('/login');
       })
     }
   }
 }
 
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+
 <style scoped>
+.message, input {font-size: 1.5em;}
+.name {font-size: 1em; position: absolute; bottom: 0;}
+h1 {font-size: 3rem; color: #fff; font-family: 'Satisfy', cursive;}
+button { border-radius: 0.2rem; font-size: 1rem; display: block; margin-top: 0.5rem;}
+
+
 </style>

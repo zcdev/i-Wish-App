@@ -28,8 +28,8 @@
   import { db } from '../main';
   
   export default {
-    name: 'login',
-    data: function() {
+    name: 'Login',
+    data(){
       return {
         email: '',
         password: ''
@@ -37,7 +37,7 @@
     },
     methods: {
       login () {
-        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then((user) => {
+        firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(() => {
           this.$router.replace('/wishes');
         }).catch((err) => {
           alert(err.message);
@@ -47,7 +47,6 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
 </style>

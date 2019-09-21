@@ -19,7 +19,7 @@ import firebase from 'firebase/app';
 import { db } from '../main';
 
 export default {
-  name: 'signup',
+  name: 'SignUp',
   data() {
     return {
       email: '',
@@ -29,24 +29,29 @@ export default {
     }
   },
   methods: {
+
     signUp() {
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
-        .then(token => {
-          this.$router.replace('/login')
-          token.user.updateProfile({
+      firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(() => {
+        this.$router.replace('/wishes');
+      }).catch((err) => {
+          alert(err.message);
+        });
+
+      firebase.auth().onAuthStateChanged(user => {
+        if (user) {
+          user.updateProfile({
             displayName: this.name
-          }).then(token => {
-            this.updateUserData(token.user);
-            resolve(token);
-          }).catch(err => {
+          }).then(() => {
+            let name = user.displayName;
+          }).catch((err) => {
             alert(err.message);
           });
-        })
-      }
+        }
+      });
     }
   }
+}
 
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 </style>

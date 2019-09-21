@@ -17,6 +17,7 @@ Vue.use(firestorePlugin);
 
 export const db = firebase.initializeApp({
 	// to be inserted.
+
   }).firestore()
 
 
