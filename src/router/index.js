@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import firebase from 'firebase'
+import firebase from 'firebase/app'
 
 import Wishes from '../components/Wishes'
 import Login from '../components/Login'
