@@ -1,6 +1,6 @@
 <template>
   <div class="sign-up">
-  <h1>Make a wish .</h1>
+    <h1>Make a wish .</h1>
     <h3 class="text">Create a new account</h3>
     <input v-model="email" type="text" class="input" placeholder="Email" required>
     <br>
@@ -8,9 +8,11 @@
     <br>
     <input v-model="name" type="text" class="input" placeholder="Name" required>
     <button v-on:click="signUp" class="button">Sign Up!</button>
-      <p class="link"><router-link to="/login">
+    <p class="link">
+      <router-link to="/login">
         Back
-      </router-link></p>
+      </router-link>
+    </p>
   </div>
 </template>
 <script>
@@ -33,8 +35,8 @@ export default {
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(() => {
         this.$router.replace('/wishes');
       }).catch((err) => {
-          alert(err.message);
-        });
+        alert(err.message);
+      });
 
       firebase.auth().onAuthStateChanged(user => {
         if (user) {
@@ -54,14 +56,16 @@ export default {
 </script>
 <style scoped>
 .sign-up {
-box-sizing: border-box;
-width:100vw;
-min-height: 100vh;
-background: url('../assets/wish-cover.jpg');
-background-size: cover;
-padding: 1rem;
+  box-sizing: border-box;
+  width: 100vw;
+  min-height: 100vh;
+  background: url('../assets/wish-cover.jpg');
+  background-size: cover;
+  padding: 1rem;
 }
-.text, .link a {
+
+.text,
+.link a {
   color: #fff;
 }
 
@@ -70,8 +74,9 @@ padding: 1rem;
 }
 
 @media screen and (max-width: 500px) {
-.sign-up {
-  background-position: 26%;
+  .sign-up {
+    background-position: 26%;
+  }
 }
-}
+
 </style>

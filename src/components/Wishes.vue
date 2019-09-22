@@ -2,15 +2,15 @@
   <div class="wishes">
     <ul class="posts">
       <li class="wish" v-for="(wish, idx) in wishes" :key="idx">
-          <p class="message">{{ wish.message }}</p>
-          <p class="info"><span class="name">{{ wish.name }}</span><br>{{ wish.createdAt.toDate() | moment("dddd, MMMM Do YYYY, h:mm:ss A") }}</p>
-          <button v-if="wish.userId == user" class="button" @click="deleteWish(wish.id)">
-            My wish came true
-          </button>
+        <p class="message">{{ wish.message }}</p>
+        <p class="info"><span class="name">{{ wish.name }}</span><br>{{ wish.createdAt.toDate() | moment("dddd, MMMM Do YYYY, h:mm:ss A") }}</p>
+        <button v-if="wish.userId == user" class="button" @click="deleteWish(wish.id)">
+          My wish came true
+        </button>
       </li>
     </ul>
     <div class="makewish">
-    <button class="button logout" v-on:click="logout">Logout</button>
+      <button class="button logout" v-on:click="logout">Logout</button>
       <form @submit="addWish(message)">
         <h1>Make a wish .</h1>
         <textarea v-model="message" placeholder="Make a wish." class="input" required></textarea>
@@ -70,22 +70,39 @@ export default {
 }
 
 </script>
-
 <style scoped>
-.wishes {  
-background-image: url('../assets/wish-wall.jpg');
+.wishes {
+  background-image: url('../assets/wish-wall.jpg');
   background-size: cover;
   box-sizing: border-box;
-width:100vw;
-min-height: 100vh;
-padding: 1rem;
+  width: 100vw;
+  min-height: 100vh;
+  padding: 1rem;
 }
-.message {font-size: 1.5em;}
-.info {font-size: 0.7em; position: absolute; bottom: 0; font-family: Verdana, sans-serif;}
+
+.message {
+  font-size: 1.5em;
+}
+
+.info {
+  font-size: 0.7em;
+  position: absolute;
+  bottom: 0;
+  font-family: Verdana, sans-serif;
+}
+
 .name {
-  font-family: 'Satisfy', cursive; font-size: 1.5em;
+  font-family: 'Satisfy', cursive;
+  font-size: 1.5em;
 }
-textarea { font-size: 1em; min-width: 19rem; min-height: 20em; background: rgba(255, 255, 255, 0.7); color: #000;}
+
+textarea {
+  font-size: 1em;
+  min-width: 19rem;
+  min-height: 20em;
+  background: rgba(255, 255, 255, 0.7);
+  color: #000;
+}
 
 ul,
 li {
@@ -185,6 +202,7 @@ ul li a:focus {
 }
 
 @media screen and (max-width: 500px) {
+
   .posts,
   .makewish {
     width: 100%;
@@ -192,6 +210,5 @@ ul li a:focus {
     position: relative;
   }
 }
-
 
 </style>
