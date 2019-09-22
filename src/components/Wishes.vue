@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wishes">
     <ul class="posts">
       <li class="wish" v-for="(wish, idx) in wishes" :key="idx">
           <p class="message">{{ wish.message }}</p>
@@ -12,8 +12,8 @@
     <div class="makewish">
     <button class="button logout" v-on:click="logout">Logout</button>
       <form @submit="addWish(message)">
-        <h1>Make a wish.</h1>
-        <input v-model="message" placeholder="Make a wish." class="input" required>
+        <h1>Make a wish .</h1>
+        <textarea v-model="message" placeholder="Make a wish." class="input" required></textarea>
         <button type="submit" class="button">Submit my wish</button>
       </form>
     </div>
@@ -72,10 +72,17 @@ export default {
 </script>
 
 <style scoped>
-.message, input {font-size: 1.5em;}
+.wishes {  
+background-image: url('../assets/wish-wall.jpg');
+  background-size: cover;
+  box-sizing: border-box;
+width:100vw;
+min-height: 100vh;
+padding: 1rem;
+}
+.message {font-size: 1.5em;}
 .name {font-size: 1em; position: absolute; bottom: 0;}
-h1 {font-size: 3rem; color: #fff; font-family: 'Satisfy', cursive;}
-button { border-radius: 0.2rem; font-size: 1rem; display: block; margin-top: 0.5rem;}
+textarea { font-size: 1em; min-width: 19rem; min-height: 20em; background: rgba(255, 255, 255, 0.7); color: #000;}
 
 
 </style>

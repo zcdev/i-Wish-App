@@ -1,6 +1,5 @@
 <template>
   <div id="app" class="content">
-    <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Satisfy&display=swap" rel="stylesheet">
     <router-view />
   </div>
 </template>
@@ -11,14 +10,30 @@ export default {
 
 </script>
 <style>
+        html { height: 100%; box-sizing: border-box; }
+
 body {
-  ont-family: arial, sans-serif;
-  background: url('../src/assets/wish-wall.jpg');
-  background-size: cover;
+  font-family: Verdana, sans-serif;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+*, *:before, *:after { box-sizing: inherit; }
+
+h1 {font-size: 3rem; color: #fff; font-family: 'Satisfy', cursive;}
+
+h3 {
+  font-size: 20px;
+  font-weight: 100;
+}
+
+input {font-size: 1em; margin-bottom: 1rem; padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.7); color: #000;}
+
+::placeholder { color: #000; }
+
+button { border-radius: 0.2rem; font-size: 1rem; display: block; margin-top: 0.5rem;}
 
 ul,
 li {

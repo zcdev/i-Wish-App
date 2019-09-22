@@ -1,6 +1,7 @@
 <template>
   <div class="login">
-    <h3>Make a wish</h3>
+    <h1>Make a wish .</h1>
+    <h3 class="text">Foster positivity in our time</h3>
     <input 
       type="text" 
       v-model="email" 
@@ -16,7 +17,7 @@
       required>
     <br/>
     <button v-on:click="login" class="button">Enter</button>
-    <p><router-link to="/signup">
+    <p class="link"><router-link to="/signup">
       New Here? Create a new account
     </router-link></p>
   </div>
@@ -48,5 +49,19 @@
 </script>
 
 <style scoped>
-
+.login {
+box-sizing: border-box;
+width:100vw;
+min-height: 100vh;
+background: url('../assets/wish-cover.jpg');
+background-size: cover;
+padding: 1rem;
+}
+.input {
+  margin-bottom: 1rem;
+  background: rgba(255, 255, 255, 0.7); color: #000;
+}
+.text, .link a {
+  color: #fff;
+}
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div class="sign-up">
-    <h3>Create a new account</h3>
+  <h1>Make a wish .</h1>
+    <h3 class="text">Create a new account</h3>
     <input v-model="email" type="text" class="input" placeholder="Email" required>
     <br>
     <input v-model="password" type="password" class="input" placeholder="Password" required>
@@ -54,4 +55,19 @@ export default {
 
 </script>
 <style scoped>
+.sign-up {
+box-sizing: border-box;
+width:100vw;
+min-height: 100vh;
+background: url('../assets/wish-cover.jpg');
+background-size: cover;
+padding: 1rem;
+}
+.text, .link a {
+  color: #fff;
+}
+
+.button a {
+  color: #000;
+}
 </style>
