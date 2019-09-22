@@ -28,6 +28,8 @@ h3 {
   font-weight: 100;
 }
 
+p {font-family: Verdana, sans-serif;}
+
 input {font-size: 1em; margin-bottom: 1rem; padding: 0.5rem;
   background: rgba(255, 255, 255, 0.7); color: #000;}
 
@@ -50,8 +52,8 @@ ul li {
   color: #000;
   background: #ffc0c8;
   display: block;
-  height: 15em;
-  width: 15em;
+  height: 20em;
+  width: 20em;
   padding: 1em;
   -moz-box-shadow: 5px 5px 7px rgba(33, 33, 33, 1);
   -webkit-box-shadow: 5px 5px 7px rgba(33, 33, 33, .7);
@@ -119,7 +121,7 @@ ul li a:focus {
 }
 
 .makewish {
-  width: 22%;
+  width: 24%;
   float: right;
   position: fixed;
   top: 0;
@@ -127,7 +129,7 @@ ul li a:focus {
 }
 
 .posts {
-  width: 78%;
+  width: 76%;
 
 }
 

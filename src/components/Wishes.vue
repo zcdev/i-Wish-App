@@ -3,7 +3,7 @@
     <ul class="posts">
       <li class="wish" v-for="(wish, idx) in wishes" :key="idx">
           <p class="message">{{ wish.message }}</p>
-          <p class="name">from: {{ wish.name }}</p>
+          <p class="info"><span class="name">{{ wish.name }}</span><br>{{ wish.createdAt.toDate() }}</p>
           <button v-if="wish.userId == user" class="button" @click="deleteWish(wish.id)">
             My wish came true
           </button>
@@ -31,7 +31,8 @@ export default {
       message: '',
       name: firebase.auth().currentUser.displayName,
       userId: '',
-      user: firebase.auth().currentUser.uid
+      user: firebase.auth().currentUser.uid,
+      createdAt: new Date()
     }
   },
   firestore() {
@@ -41,7 +42,6 @@ export default {
   },
   methods: {
     addWish(message) {
-      const createdAt = new Date();
       const userId = firebase.auth().currentUser.uid;
       const name = firebase.auth().currentUser.displayName;
       db.collection('wishes').add({ message, name, userId, createdAt });
@@ -81,7 +81,10 @@ min-height: 100vh;
 padding: 1rem;
 }
 .message {font-size: 1.5em;}
-.name {font-size: 1em; position: absolute; bottom: 0;}
+.info {font-size: 1em; position: absolute; bottom: 0; font-family: Verdana, sans-serif;}
+.name {
+  font-family: 'Satisfy', cursive; font-size: 1em;
+}
 textarea { font-size: 1em; min-width: 19rem; min-height: 20em; background: rgba(255, 255, 255, 0.7); color: #000;}
 
 

@@ -68,4 +68,10 @@ padding: 1rem;
 .button a {
   color: #000;
 }
+
+@media screen and (max-width: 500px) {
+.sign-up {
+  background-position: 26%;
+}
+}
 </style>

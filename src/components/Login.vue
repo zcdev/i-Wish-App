@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <h1>Make a wish .</h1>
-    <h3 class="text">Foster positivity in our time</h3>
+    <h3 class="text">Foster positivity for our time</h3>
     <input 
       type="text" 
       v-model="email" 
@@ -63,5 +63,11 @@ padding: 1rem;
 }
 .text, .link a {
   color: #fff;
+}
+
+@media screen and (max-width: 500px) {
+.login {
+  background-position: 26%;
+}
 }
 </style>
