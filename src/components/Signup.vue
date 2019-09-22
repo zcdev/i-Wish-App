@@ -8,11 +8,9 @@
     <br>
     <input v-model="name" type="text" class="input" placeholder="Name" required>
     <button v-on:click="signUp" class="button">Sign Up!</button>
-    <button class="button">
-      <router-link to="/login">
+      <p class="link"><router-link to="/login">
         Back
-      </router-link>
-    </button>
+      </router-link></p>
   </div>
 </template>
 <script>
