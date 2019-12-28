@@ -30,8 +30,12 @@ export default {
     }
   },
   methods: {
-
     signUp() {
+      if (this.name.length > 40) {
+        alert("The username is too long!");
+        return false
+      }
+      
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(() => {
         this.$router.replace('/wishes');
       }).catch((err) => {

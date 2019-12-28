@@ -14,7 +14,7 @@
       <form @submit="addWish(message)">
         <h1>Make a wish .</h1>
         <textarea v-model="message" placeholder="Make a wish." class="input" required></textarea>
-        <button type="submit" class="button">Submit my wish</button>
+        <button type="submit" class="button submit">Submit my wish</button>
       </form>
     </div>
   </div>
@@ -41,6 +41,10 @@ export default {
   },
   methods: {
     addWish(message) {
+      if (this.message.length > 150) {
+        alert("Your wish is too much... Sorry...");
+        return
+      }
       const createdAt = new Date();
       const userId = firebase.auth().currentUser.uid;
       const name = firebase.auth().currentUser.displayName;
@@ -200,12 +204,24 @@ ul li a:focus {
 }
 
 @media screen and (max-width: 500px) {
-
   .posts,
   .makewish {
     width: 100%;
     display: block;
     position: relative;
+    padding: 0;
+  }
+  .wishes {
+    background-size: contain;
+  }
+  .logout {
+    margin-top: 2em;
+  }
+  .submit {
+    margin: 2em 0;
+  }
+  h1 {
+    color: #000;
   }
 }
 
