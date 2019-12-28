@@ -32,11 +32,13 @@ h1 {
   font-size: 3rem;
   color: #fff;
   font-family: 'Satisfy', cursive;
+  margin-bottom: 0;
 }
 
 h3 {
   font-size: 20px;
   font-weight: 100;
+  margin-top: 0;
 }
 
 p {

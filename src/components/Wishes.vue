@@ -49,7 +49,6 @@ export default {
     },
     deleteWish(userId) {
       let wishesRef = db.collection("wishes");
-
       wishesRef.doc(userId).onSnapshot(function(doc) {
         if (doc.exists) {
           if (doc.data().userId == firebase.auth().currentUser.uid) {
@@ -59,7 +58,6 @@ export default {
           }
         }
       });
-
     },
     logout() {
       firebase.auth().signOut().then(() => {

@@ -44,6 +44,7 @@ export default {
   width: 100vw;
   min-height: 100vh;
   background: url('../assets/wish-cover.jpg');
+  background-position: 10%;
   background-size: cover;
   padding: 1rem;
 }
@@ -59,9 +60,9 @@ export default {
   color: #fff;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 800px) {
   .login {
-    background-position: 26%;
+    background-position: 44%;
   }
 }
 
