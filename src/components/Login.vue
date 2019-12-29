@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <h1>Make a wish .</h1>
-    <h3 class="text">Foster positivity for our time... &#10084;</h3>
+    <h3 class="text">Foster positivity for our time... ♥️</h3>
     <input type="text" v-model="email" placeholder="Email address" class="input" required>
     <br />
     <input type="password" v-model="password" placeholder="Password" class="input" required>

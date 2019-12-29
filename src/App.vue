@@ -58,10 +58,13 @@ input {
 }
 
 button {
+  border: 1px solid #999999;
   border-radius: 0.2rem;
   font-size: 1rem;
   display: block;
   margin-top: 0.5rem;
+  background: #ffffff;
+  background: linear-gradient(to bottom,  #ffffff 0%,#f3f3f3 50%,#ededed 51%,#ffffff 100%);
 }
 
 </style>

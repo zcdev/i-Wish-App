@@ -143,6 +143,8 @@ ul li h2 {
 ul li p {
   font-family: 'Satisfy', cursive;
   font-size: 180%;
+  margin: 0;
+  margin-bottom: 1em;
 }
 
 ul li {
@@ -214,14 +216,28 @@ ul li a:focus {
   .wishes {
     background-size: contain;
   }
+  .message {
+    font-size: 100%;
+  }
   .logout {
     margin-top: 2em;
   }
   .submit {
     margin: 2em 0;
   }
+  textarea {
+  padding: 0.5em;
+  margin: 1%;
+  margin-top: 10%;
+  display: block;
+  min-width: 90%;
+  }
   h1 {
     color: #000;
+  }
+  ul li {
+    height: 15em;
+    width: 15em;
   }
 }
 
