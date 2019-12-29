@@ -64,6 +64,7 @@ export default {
   width: 100vw;
   min-height: 100vh;
   background: url('../assets/wish-cover.jpg');
+  background-position: 10%;
   background-size: cover;
   padding: 1rem;
 }
