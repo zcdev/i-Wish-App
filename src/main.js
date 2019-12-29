@@ -16,7 +16,6 @@ Vue.use(require('vue-moment'));
 Vue.use(firestorePlugin);
 
 export const db = firebase.initializeApp({
-	// to be inserted.
   	apiKey: "AIzaSyBcmFvDa_df_NNM1SNkvBc6E8PKPRcISHQ",
 	authDomain: "iwishapp-bf5ff.firebaseapp.com",
 	databaseURL: "https://iwishapp-bf5ff.firebaseio.com",
@@ -25,7 +24,6 @@ export const db = firebase.initializeApp({
 	messagingSenderId: "697283254027",
 	appId: "1:697283254027:web:78c20dd0682741bc"
   }).firestore()
-
 
 new Vue({
   el: '#app',
