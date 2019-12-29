@@ -4,6 +4,7 @@
 
 ## Technologies
 * VueFire (Vue.js + Firestore)
+* Vue-Moment
 * Google Cloud Platform
 
 Deployed link: https://iwishapp-bf5ff.firebaseapp.com
