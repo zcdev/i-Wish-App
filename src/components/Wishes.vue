@@ -50,7 +50,7 @@ export default {
       const name = firebase.auth().currentUser.displayName;
       db.collection('wishes').add({ message, name, userId, createdAt });
       this.message = "";
-      alert("Your wish is posted on the wall!");
+      alert("Thanks, your wish is posted on the wall!");
     },
     deleteWish(userId) {
       let wishesRef = db.collection("wishes");
