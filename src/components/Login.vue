@@ -9,7 +9,7 @@
     <button v-on:click="login" class="button">Enter</button>
     <p class="link">
       <router-link to="/signup">
-        New Here? Create a new account
+        New here? Create a new account
       </router-link>
     </p>
   </div>
