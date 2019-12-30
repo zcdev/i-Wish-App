@@ -38,15 +38,15 @@ let router = new Router({
 router.beforeEach((to, from, next) => {
   let currentUser = firebase.auth().currentUser;
   let requiresAuth = to.matched.some(record => record.meta.requiresAuth);
-
-  if (requiresAuth && currentUser == "") {
-  	next('login');
-  } else if (!requiresAuth && currentUser) {
-  	next('wishes');
-  } else {
-  	next();
-  }
-  
+  firebase.auth().onAuthStateChanged((user) => {
+    if (requiresAuth && currentUser == null) {
+    	next('login');
+    } else if (!requiresAuth && currentUser) {
+    	next('wishes');
+    } else {
+    	next();
+    }
+  }); 
 });
 
 export default router

@@ -11,7 +11,7 @@
     </ul>
     <div class="makewish">
       <button class="button logout" v-on:click="logout">Logout</button>
-      <form @submit="addWish(message)">
+      <form @submit.prevent="addWish(message)">
         <h1>Make a wish .</h1>
         <textarea v-model="message" placeholder="Make a wish." class="input" required></textarea>
         <button type="submit" class="button submit">Submit my wish</button>
