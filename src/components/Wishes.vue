@@ -172,7 +172,7 @@ ul li:nth-child(2n) {
   background: #d3b6e5;
 }
 
-ul li:nth-child(3n) {
+ul li:nth-child(3) {
   -o-transform: rotate(-3deg);
   -webkit-transform: rotate(-3deg);
   -moz-transform: rotate(-3deg);
