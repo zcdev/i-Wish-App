@@ -14,7 +14,7 @@
       </router-link>
     </p>
     <p class="text">
-    This platform is experimental and being moderated. <br>We do not validate user identities nor reuse user data for any other purposes beyond wish posts. <br>We do not hold liability to open source data.</p>
+    Disclaimer: This platform is experimental and being moderated. <br>We do not validate user identities nor reuse user data for any other purposes beyond wish posts. <br>We do not hold liability to open source data.</p>
     <p class="text">&copy 2020 ZCDEV
     </p>
   </div>
