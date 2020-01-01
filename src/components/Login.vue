@@ -12,6 +12,9 @@
         New here? Create a new account
       </router-link>
     </p>
+    <p class="text">
+    &copy 2020 ZCDEV
+    </p>
   </div>
 </template>
 <script>
