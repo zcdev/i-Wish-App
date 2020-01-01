@@ -154,7 +154,7 @@ ul li {
   -moz-transform: rotate(-6deg);
 }
 
-ul li:nth-child(even) {
+ul li:nth-child(1n) {
   -o-transform: rotate(4deg);
   -webkit-transform: rotate(4deg);
   -moz-transform: rotate(4deg);
@@ -163,7 +163,7 @@ ul li:nth-child(even) {
   background: #ffdfb6;
 }
 
-ul li:nth-child(3n) {
+ul li:nth-child(2n) {
   -o-transform: rotate(-3deg);
   -webkit-transform: rotate(-3deg);
   -moz-transform: rotate(-3deg);
@@ -172,7 +172,16 @@ ul li:nth-child(3n) {
   background: #d3b6e5;
 }
 
-ul li:nth-child(5n) {
+ul li:nth-child(3n) {
+  -o-transform: rotate(-3deg);
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  position: relative;
+  top: -5px;
+  background: #89cda7;
+}
+
+ul li:nth-child(4n) {
   -o-transform: rotate(5deg);
   -webkit-transform: rotate(5deg);
   -moz-transform: rotate(5deg);
