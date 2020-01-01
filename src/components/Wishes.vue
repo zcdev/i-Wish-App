@@ -5,7 +5,7 @@
         <p class="message">{{ wish.message }}</p>
         <p class="info"><span class="name">{{ wish.name }}</span><br>{{ wish.createdAt.toDate() | moment("dddd, MMMM Do YYYY, h:mm:ss A") }}</p>
         <button v-if="wish.userId == user" class="button" @click="deleteWish(wish.id)">
-          My wish came true
+          My wish came true (remove wish)
         </button>
       </li>
     </ul>
@@ -173,11 +173,11 @@ ul li:nth-child(2n) {
 }
 
 ul li:nth-child(3) {
-  -o-transform: rotate(-3deg);
-  -webkit-transform: rotate(-3deg);
-  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-1deg);
+  -webkit-transform: rotate(-1deg);
+  -moz-transform: rotate(-1deg);
   position: relative;
-  top: -5px;
+  top: -10px;
   background: #89cda7;
 }
 
@@ -191,13 +191,21 @@ ul li:nth-child(4n) {
 }
 
 ul li:nth-child(5n) {
-  -o-transform: rotate(5deg);
-  -webkit-transform: rotate(5deg);
-  -moz-transform: rotate(5deg);
+  -o-transform: rotate(2deg);
+  -webkit-transform: rotate(2deg);
+  -moz-transform: rotate(2deg);
   position: relative;
-  top: -10px;
-  background: #97daf8;
+  top: -5px;
   background: #ffc0c8;
+}
+
+ul li:nth-child(7n) {
+  -o-transform: rotate(-4deg);
+  -webkit-transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  position: relative;
+  top: 5px;
+  background: #89cda7;
 }
 
 ul li:hover,
