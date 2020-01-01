@@ -178,6 +178,7 @@ ul li:nth-child(5n) {
   -moz-transform: rotate(5deg);
   position: relative;
   top: -10px;
+  background: #97daf8;
 }
 
 ul li:hover,
