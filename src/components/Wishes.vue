@@ -13,7 +13,7 @@
       <button class="button logout" v-on:click="logout">Logout</button>
       <form @submit.prevent="addWish(message)">
         <h1>Make a wish .</h1>
-        <textarea v-model="message" placeholder="Write down your wish here. Approximately 150 characters." class="input" required></textarea>
+        <textarea v-model="message" placeholder="Write down your wish here. Approximately 150 characters or less." class="input" required></textarea>
         <button type="submit" class="button submit">Submit my wish</button>
       </form>
     </div>
