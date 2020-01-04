@@ -17,7 +17,6 @@
         <button type="submit" class="button submit">Submit my wish</button>
       </form>
       <div class="topwishes">
-        {{getTopWishes}}
         <h2>Top Wishes</h2>
         <ol>
         <li v-for="wish in topWishes">
@@ -49,7 +48,10 @@ export default {
       wishes: db.collection('wishes').orderBy('createdAt')
     }
   },
-  computed: {
+  created() {
+    this.getTopWishes();
+  },
+  methods: {
     getTopWishes() {
       db.collection("wishes").get().then((querySnapshot) => {
         let rank = {love: 0, health: 0, joy: 0, happiness: 0, peace: 0, success: 0, job: 0, wealth: 0};
@@ -82,13 +84,12 @@ export default {
           }
         });
 
-      let topWishes = Object.keys(rank).sort((a,b) => rank[b]-rank[a]);
-      return this.topWishes = topWishes;
+      let rankedWishes = Object.keys(rank).sort((a,b) => rank[b]-rank[a]);
+      return this.topWishes = rankedWishes;
 
       });
-    }
-  },
-  methods: {
+      
+    },
     addWish(message) {
       if (this.message.length > 150) {
         alert("Your wish is too much... Sorry...");
