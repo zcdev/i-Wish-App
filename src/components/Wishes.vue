@@ -16,6 +16,15 @@
         <textarea v-model="message" placeholder="Write down your wish here. Approximately 150 characters or less." class="input" required></textarea>
         <button type="submit" class="button submit">Submit my wish</button>
       </form>
+      <div class="topwishes">
+        {{getTopWishes}}
+        <h2>Top Wishes</h2>
+        <ol>
+        <li v-for="wish in topWishes">
+          {{wish}}
+        </li>
+        </ol>
+      </div>
     </div>
   </div>
 </template>
@@ -32,11 +41,51 @@ export default {
       name: firebase.auth().currentUser.displayName,
       userId: '',
       user: firebase.auth().currentUser.uid,
+      topWishes: []
     }
   },
   firestore() {
     return {
       wishes: db.collection('wishes').orderBy('createdAt')
+    }
+  },
+  computed: {
+    getTopWishes () {
+      db.collection("wishes").get().then((querySnapshot) => {
+        let rank = {love:0, health: 0, joy: 0, happiness: 0, peace: 0, success: 0, job: 0, wealth: 0};
+
+        querySnapshot.forEach((doc) => {
+          let message = doc.data().message;
+          if (message.includes("love")) {
+            rank["love"]++;
+          }
+          if (message.includes("health") || message.includes("healthy")) {
+            rank["health"]++;
+          }
+          if (message.includes("joy")) {
+            rank["joy"]++;
+          }
+          if (message.includes("happiness") || message.includes("happy")) {
+            rank["happiness"]++;
+          }
+          if (message.includes("peace") || message.includes("peaceful") || message.includes("peacefully")) {
+            rank["peace"]++;
+          }
+          if (message.includes("success") || message.includes("successful") || message.includes("successfully")) {
+            rank["success"]++;
+          }
+          if (message.includes("job")) {
+            rank["job"]++;
+          }
+          if (message.includes("wealth") || message.includes("money")) {
+            rank["wealth"]++;
+          }
+        });
+
+      let topWishes = Object.keys(rank).sort((a,b) => rank[b]-rank[a])
+      return this.topWishes = topWishes;
+
+      });
     }
   },
   methods: {
@@ -107,8 +156,18 @@ textarea {
   color: #000;
 }
 
+ol li {
+  list-style: number;
+  font-size: 20px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+h2 { color: #fff; margin-top: 20px;}
+
 ul,
-li {
+ul li {
   list-style: none;
 }
 
@@ -267,6 +326,9 @@ ul li a:focus {
   ul li {
     height: 15em;
     width: 15em;
+  }
+  ol li, h2 {
+    color: #000;
   }
 }
 
