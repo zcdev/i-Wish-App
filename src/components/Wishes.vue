@@ -50,9 +50,9 @@ export default {
     }
   },
   computed: {
-    getTopWishes () {
+    getTopWishes() {
       db.collection("wishes").get().then((querySnapshot) => {
-        let rank = {love:0, health: 0, joy: 0, happiness: 0, peace: 0, success: 0, job: 0, wealth: 0};
+        let rank = {love: 0, health: 0, joy: 0, happiness: 0, peace: 0, success: 0, job: 0, wealth: 0};
 
         querySnapshot.forEach((doc) => {
           let message = doc.data().message;
@@ -82,7 +82,7 @@ export default {
           }
         });
 
-      let topWishes = Object.keys(rank).sort((a,b) => rank[b]-rank[a])
+      let topWishes = Object.keys(rank).sort((a,b) => rank[b]-rank[a]);
       return this.topWishes = topWishes;
 
       });
@@ -314,11 +314,11 @@ ul li a:focus {
     margin: 2em 0;
   }
   textarea {
-  padding: 0.5em;
-  margin: 1%;
-  margin-top: 10%;
-  display: block;
-  min-width: 90%;
+    padding: 0.5em;
+    margin: 1%;
+    margin-top: 10%;
+    display: block;
+    min-width: 90%;
   }
   h1 {
     color: #000;
